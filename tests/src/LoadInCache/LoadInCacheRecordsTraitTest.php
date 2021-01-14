@@ -34,14 +34,16 @@ class LoadInCacheRecordsTraitTest extends AbstractTest
 
     public function test_serialization()
     {
-        $record = new Record();
-        $record->id = 1;
-        $records = new Collection();
-        $records[1] = $record;
-
         /** @var Mock|LoadInCacheRecords $manager */
         $manager = \Mockery::mock(LoadInCacheRecords::class)->makePartial();
+
+        $record = new Record();
+        $record->id = 1;
+        $records = $manager->newCollection();
+        $records[1] = $record;
+        
         $manager->shouldReceive('findByParams')->once()->andReturn($records);
+
 
         $all = $manager->getAll();
         self::assertSame($all, $records);

@@ -18,11 +18,14 @@ trait LoadInCacheRecordsTrait
     {
         $key = str_replace('\\', '-', __CLASS__) . '_all';
         if ($this->cacheStore()->has($key)) {
+            $collection = $this->newCollection();
             $result = $this->cacheStore()->get($key);
-            return unserialize($result);
+            $items = unserialize($result);
+            $collection->setItems($items);
+            return $collection;
         }
         $result = $this->findByParams();
-        $data = serialize($result);
+        $data = serialize($result->all());
         $this->cacheStore()->set($key, $data);
         return $result;
     }
