@@ -1,6 +1,6 @@
 <?php
 
-namespace ByTIC\Records\Behaviors\Fixtures\Models\LoadInMemory;
+namespace ByTIC\Records\Behaviors\Tests\Fixtures\Models\LoadInMemory;
 
 use ByTIC\Records\Behaviors\LoadInMemory\LoadInMemoryRecordsTrait;
 use Nip\Records\Collections\Collection;

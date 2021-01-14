@@ -1,9 +1,9 @@
 <?php
 
-namespace ByTIC\Records\Behaviors\LoadInMemory;
+namespace ByTIC\Records\Behaviors\Tests\LoadInMemory;
 
-use ByTIC\Records\Behaviors\Fixtures\Models\LoadInMemory\LoadInMemoryRecords;
 use ByTIC\Records\Behaviors\Tests\AbstractTest;
+use ByTIC\Records\Behaviors\Tests\Fixtures\Models\LoadInMemory\LoadInMemoryRecords;
 use Mockery\Mock;
 use Nip\Records\Collections\Collection;
 
