@@ -3,6 +3,7 @@
 namespace ByTIC\Records\Behaviors\Tests\Fixtures\Models\LoadInMemory;
 
 use ByTIC\Records\Behaviors\LoadInMemory\LoadInMemoryRecordsTrait;
+use ByTIC\Records\Behaviors\Singleton\RepositorySingletonTrait;
 use Nip\Records\Collections\Collection;
 use Nip\Records\RecordManager;
 
@@ -13,6 +14,7 @@ use Nip\Records\RecordManager;
 class LoadInMemoryRecords extends RecordManager
 {
     use LoadInMemoryRecordsTrait;
+    use RepositorySingletonTrait;
 
     protected function retrieveForMemory()
     {
