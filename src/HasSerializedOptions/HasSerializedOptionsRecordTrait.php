@@ -11,7 +11,7 @@ namespace ByTIC\Records\Behaviors\HasSerializedOptions;
  */
 trait HasSerializedOptionsRecordTrait
 {
-    use \Nip\Records\Traits\AbstractTrait\RecordsTrait;
+    use \Nip\Records\Traits\AbstractTrait\RecordTrait;
 
     /**
      * @var null|array
