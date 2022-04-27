@@ -36,7 +36,15 @@ trait HasSerializedOptionsRecordTrait
 
     public function initOptions()
     {
-        $options = unserialize($this->getAttributeFromArray('options'));
+        $options = $this->getAttributeFromArray('options');
+        if ($options === null) {
+            $this->optionsArray = [];
+            return;
+        } elseif(is_array($options)) {
+            $this->optionsArray = $options;
+            return;
+        }
+        $options = unserialize($options);
         $options = (is_array($options)) ? $options : [];
         $this->optionsArray = $options;
     }
