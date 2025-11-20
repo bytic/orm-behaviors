@@ -13,7 +13,7 @@ use Nip\Records\EventManager\Events\Event;
  */
 trait HasSerializedOptionsRecordsTrait
 {
-    public function bootHasSerializedOptionsRecordTrait()
+    public function bootHasSerializedOptionsRecordsTrait()
     {
         $closure = function (Event $event) {
             $record = $event->getRecord();
