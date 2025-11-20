@@ -2,6 +2,8 @@
 
 namespace ByTIC\Records\Behaviors\HasSerializedOptions;
 
+use Nip\Records\EventManager\Events\Event;
+
 /**
  * Class HasSerializedOptionsRecordTrait
  * @package ByTIC\Records\Behaviors\HasSerializedOptions
@@ -17,6 +19,18 @@ trait HasSerializedOptionsRecordTrait
      * @var null|array
      */
     protected $optionsArray = null;
+
+    public function bootHasSerializedOptionsRecordTrait()
+    {
+        $closure = function (Event $event) {
+            $record = $event->getRecord();
+            $record->serializeOptions();
+        };
+        static::creating($closure);
+        static::updating($closure);
+        static::saving($closure);
+    }
+
 
     /**
      * @return array
